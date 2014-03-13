@@ -80,6 +80,11 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <activity android:name="com.taobao.detail.DetailActivity"
+                  android:label="detail"
+                  >
+        </activity>
+
     </application>
 
 </manifest>

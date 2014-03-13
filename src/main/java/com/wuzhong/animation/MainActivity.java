@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.taobao.detail.DetailActivity;
 import com.wuzhong.R;
 
 /**
@@ -67,6 +68,7 @@ public class MainActivity extends ListActivity {
                 new Sample(R.string.title_screen_slide, ScreenSlideActivity.class),
                 new Sample(R.string.title_zoom, ZoomActivity.class),
                 new Sample(R.string.title_layout_changes, LayoutChangesActivity.class),
+                new Sample(R.string.title_detail_activity, DetailActivity.class),
         };
 
         setListAdapter(new ArrayAdapter<Sample>(this,
