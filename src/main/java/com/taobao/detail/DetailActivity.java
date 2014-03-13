@@ -18,7 +18,7 @@ public class DetailActivity extends FragmentActivity implements FragmentManager.
 
     private FragmentManager mFragmentManager;
     private Fragment mMainFragment;
-    private boolean firstPage = true;
+    private int backStackCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +37,15 @@ public class DetailActivity extends FragmentActivity implements FragmentManager.
 
         fragmentTransaction.commit();
 
+        mFragmentManager.addOnBackStackChangedListener(this);
+
+        backStackCount = mFragmentManager.getBackStackEntryCount();
+
     }
 
     public void openMoreService(View view){
 
         mMainFragment.getView().setVisibility(View.GONE);
-        firstPage = false;
 
         Log.e("[detail]", "open more service");
 
@@ -64,19 +67,22 @@ public class DetailActivity extends FragmentActivity implements FragmentManager.
         }
     }
 
+
     @Override
     public void onBackStackChanged() {
         Log.e("[detail]", "onBackStackChanged");
-        if(!firstPage){
+        mFragmentManager.getBackStackEntryCount();
 
-        }else{
-
+        if(mFragmentManager.getBackStackEntryCount() < backStackCount){
+            mMainFragment.getView().setVisibility(View.VISIBLE);
         }
+
+        backStackCount = mFragmentManager.getBackStackEntryCount();
 
     }
 
 //    @Override
 //    public void onBackPressed() {
-//        mMainFragment.getView().setVisibility(View.VISIBLE);
+//
 //    }
 }
