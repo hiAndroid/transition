@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.example.android.animationsdemo;
+package com.wuzhong.animation;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +28,8 @@ import com.wuzhong.R;
  * A fragment representing a single step in a wizard. The fragment shows a dummy title indicating
  * the page number, along with some dummy text.
  *
- * <p>This class is used by the {@link com.example.android.animationsdemo.CardFlipActivity} and {@link
- * com.example.android.animationsdemo.ScreenSlideActivity} samples.</p>
+ * <p>This class is used by the {@link CardFlipActivity} and {@link
+ * ScreenSlideActivity} samples.</p>
  */
 public class ScreenSlidePageFragment extends Fragment {
     /**

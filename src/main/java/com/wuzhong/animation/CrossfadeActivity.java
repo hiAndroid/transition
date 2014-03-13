@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.animationsdemo;
+package com.wuzhong.animation;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -62,8 +62,8 @@ public class CrossfadeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crossfade);
 
+        setContentView(R.layout.activity_crossfade);
         mContentView = findViewById(R.id.content);
         mLoadingView = findViewById(R.id.loading_spinner);
 

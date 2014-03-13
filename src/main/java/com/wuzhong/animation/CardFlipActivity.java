@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.animationsdemo;
+package com.wuzhong.animation;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -74,11 +74,13 @@ public class CardFlipActivity extends Activity
 
         // Add either a "photo" or "finish" button to the action bar, depending on which page
         // is currently selected.
-//        MenuItem item = menu.add(Menu.NONE, R.id.action_flip, Menu.NONE,
-//                mShowingBack ? R.string.action_photo : R.string.action_info);
-//
-//        item.setIcon( mShowingBack ? R.drawable.ic_action_photo : R.drawable.ic_action_info);
-//        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        MenuItem item = menu.add(Menu.NONE, R.id.action_flip, Menu.NONE,
+                mShowingBack ? R.string.action_photo : R.string.action_info);
+
+        item.setIcon( mShowingBack ? R.drawable.ic_action_photo : R.drawable.ic_action_info);
+
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
         return true;
     }
 
@@ -172,6 +174,7 @@ public class CardFlipActivity extends Activity
      * A fragment representing the back of the card.
      */
     public static class CardBackFragment extends Fragment {
+
         public CardBackFragment() {
         }
 

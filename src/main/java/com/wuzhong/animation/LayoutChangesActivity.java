@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.animationsdemo;
+package com.wuzhong.animation;
 
 import android.app.Activity;
 import android.content.Intent;

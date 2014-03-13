@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.animationsdemo;
+package com.wuzhong.animation;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -51,7 +51,7 @@ public class MainActivity extends ListActivity {
 
     /**
      * The collection of all samples in the app. This gets instantiated in {@link
-     * #onCreate(android.os.Bundle)} because the {@link com.example.android.animationsdemo.MainActivity.Sample} constructor needs access to {@link
+     * #onCreate(android.os.Bundle)} because the {@link MainActivity.Sample} constructor needs access to {@link
      * android.content.res.Resources}.
      */
     private static Sample[] mSamples;

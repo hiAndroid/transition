@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.animationsdemo;
+package com.wuzhong.animation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -135,8 +135,8 @@ public class ScreenSlideActivity extends FragmentActivity {
 
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
-//          return  ScreenSlidePageFragment.create(position);
-            return null;
+          return  ScreenSlidePageFragment.create(position);
+//            return null;
         }
 
 
