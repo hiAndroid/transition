@@ -45,7 +45,7 @@ public class DetailActivity extends FragmentActivity implements FragmentManager.
 
     public void openMoreService(View view){
 
-        mMainFragment.getView().setVisibility(View.GONE);
+//        mMainFragment.getView().setVisibility(View.GONE);
 
         Log.e("[detail]", "open more service");
 
@@ -54,12 +54,21 @@ public class DetailActivity extends FragmentActivity implements FragmentManager.
             Fragment newFragment = new MoreServiceFragment();
 
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+
+            fragmentTransaction.setCustomAnimations(
+                    R.anim.slide_in_top,
+                    R.anim.fade_out);
+
             fragmentTransaction.add(R.id.detail_frame, newFragment,newFragment.getClass().getSimpleName());
 
             fragmentTransaction.addToBackStack(null);
+
             fragmentTransaction.commitAllowingStateLoss();
 
+//            fragmentTransaction.show(newFragment);
+
         }else{
+
 
 
 
