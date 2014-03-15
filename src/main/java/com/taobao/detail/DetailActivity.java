@@ -1,5 +1,6 @@
 package com.taobao.detail;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,6 +8,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.ScaleAnimation;
 import com.taobao.detail.fragment.MainFragment;
 import com.taobao.detail.fragment.MoreServiceFragment;
 import com.wuzhong.R;
@@ -33,6 +37,8 @@ public class DetailActivity extends FragmentActivity implements FragmentManager.
 
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
 
+        fragmentTransaction.setCustomAnimations(R.anim.fade_in,R.anim.fade_out);
+
         fragmentTransaction.add( R.id.detail_frame, mMainFragment,mMainFragment.getClass().getSimpleName());
 
         fragmentTransaction.commit();
@@ -40,6 +46,10 @@ public class DetailActivity extends FragmentActivity implements FragmentManager.
         mFragmentManager.addOnBackStackChangedListener(this);
 
         backStackCount = mFragmentManager.getBackStackEntryCount();
+
+//        mMainFragment.getView().startAnimation(AnimationUtils.loadAnimation(this,R.anim.fade_in));
+
+
 
     }
 
@@ -86,8 +96,36 @@ public class DetailActivity extends FragmentActivity implements FragmentManager.
             mMainFragment.getView().setVisibility(View.VISIBLE);
         }
 
+        ;
+
+        //mMainFragment.getView().startAnimation(AnimationUtils.loadAnimation(this,R.anim.fade_in));
+
+
+        mMainFragment.getView().startAnimation(getPushForwardAni(this));
+
         backStackCount = mFragmentManager.getBackStackEntryCount();
 
+    }
+
+    public ScaleAnimation getPushmBackAni(Context mContext) {
+        ScaleAnimation mPushBackAni = new ScaleAnimation(1.0f, 0.9f, 1.0f,
+                0.9f, Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        mPushBackAni.setDuration(700);
+        mPushBackAni.setStartOffset(100);
+        mPushBackAni.setFillAfter(true);
+        mPushBackAni.setInterpolator(AnimationUtils.loadInterpolator(mContext,
+                R.anim.detail_pushback_overshoot));
+        return mPushBackAni;
+    }
+
+    public ScaleAnimation getPushForwardAni(Context mContext) {
+        ScaleAnimation mPushForwardAni = new ScaleAnimation(0.9f, 1.0f, 0.9f,
+                1.0f, Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        mPushForwardAni.setDuration(700);
+        mPushForwardAni.setFillAfter(true);
+        return mPushForwardAni;
     }
 
 //    @Override
